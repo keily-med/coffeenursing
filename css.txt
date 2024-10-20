@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap');
+
+body {
+    background-color: #D7B490;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    background: url('https://thegroupinc.com/wp-content/uploads/2018/11/Header1-1.png') no-repeat center center;
+    background-size: cover;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    font-family: 'SF Espresso Shack', sans-serif;
+    font-size: 3em;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+h2 {
+    color: #5B4636;
+    font-size: 2em;
+    margin-top: 20px;
+}
+
+h3 {
+    color: #5B4636;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.question-section {
+    margin: 20px;
+}
+
+.button {
+    background-color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #C0A480;
+}
+
+.selected {
+    background-color: #C0A480 !important;
+}
+

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee-ology: Which Nursing Specialty Are You?</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap');
+        body {
+            background-color: #D7B490;
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background: url('https://thegroupinc.com/wp-content/uploads/2018/11/Header1-1.png') no-repeat center center;
+            background-size: cover;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .title {
+            font-family: 'SF Espresso Shack', sans-serif;
+            font-size: 3em;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .question-section {
+            margin: 20px;
+        }
+        .button {
+            background-color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            cursor: pointer;
+            margin: 10px;
+            border-radius: 5px;
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        .button:hover {
+            background-color: #C0A480;
+        }
+        .selected {
+            background-color: #C0A480 !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1 class="title">Coffee-ology</h1>
+    </div>
+    <h2>Which nursing specialty are you based on your coffee order?</h2>
+    
+    <div class="question-section">
+        <h3>Step 1: Choose Your Coffee Temperature</h3>
+        <button class="button" onclick="chooseTemperature('Hot')">Hot</button>
+        <button class="button" onclick="chooseTemperature('Iced')">Iced</button>
+    </div>
+
+    <script>
+        let score = 0;
+
+        function chooseTemperature(temp) {
+            if (temp === 'Hot') {
+                score += 1; // Assign a value for hot coffee choice
+                displayHotOptions();
+            } else if (temp === 'Iced') {
+                score += 2; // Assign a value for cold coffee choice
+                displayIcedOptions();
+            }
+        }
+
+        function displayHotOptions() {
+            document.querySelector('.question-section').innerHTML = `
+                <h3>Step 2: Choose Your Hot Coffee Type</h3>
+                <button class="button" onclick="chooseCoffee('Americano', 1)">Americano</button>
+                <button class="button" onclick="chooseCoffee('Latte', 2)">Latte</button>
+                <button class="button" onclick="chooseCoffee('Cappuccino', 3)">Cappuccino</button>
+                <button class="button" onclick="chooseCoffee('Espresso', 4)">Espresso</button>
+                <button class="button" onclick="chooseCoffee('Flat White', 5)">Flat White</button>
+                <button class="button" onclick="chooseCoffee('Mocha', 6)">Mocha</button>
+                <button class="button" onclick="chooseCoffee('Caramel Macchiato', 7)">Caramel Macchiato</button>
+                <button class="button" onclick="chooseCoffee('Hot Chocolate', 8)">Hot Chocolate</button>
+                <button class="button" onclick="chooseCoffee('Drip Coffee', 9)">Drip Coffee</button>
+                <button class="button" onclick="chooseCoffee('Cortado', 10)">Cortado</button>
+                <button class="button" onclick="chooseCoffee('Matcha Latte', 11)">Matcha Latte</button>
+            `;
+        }
+
+        function displayIcedOptions() {
+            document.querySelector('.question-section').innerHTML = `
+                <h3>Step 2: Choose Your Iced Coffee Type</h3>
+                <button class="button" onclick="chooseCoffee('Iced Latte', 12)">Iced Latte</button>
+                <button class="button" onclick="chooseCoffee('Iced Americano', 13)">Iced Americano</button>
+                <button class="button" onclick="chooseCoffee('Iced Caramel Macchiato', 14)">Iced Caramel Macchiato</button>
+                <button class="button" onclick="chooseCoffee('Cold Brew', 15)">Cold Brew</button>
+                <button class="button" onclick="chooseCoffee('Iced Mocha', 16)">Iced Mocha</button>
+                <button class="button" onclick="chooseCoffee('Frappuccino', 17)">Frappuccino</button>
+                <button class="button" onclick="chooseCoffee('Iced Matcha Latte', 18)">Iced Matcha Latte</button>
+                <button class="button" onclick="chooseCoffee('Iced Espresso', 19)">Iced Espresso</button>
+                <button class="button" onclick="chooseCoffee('Iced Flat White', 20)">Iced Flat White</button>
+            `;
+        }
+
+        function chooseCoffee(coffee, value) {
+            score += value;
+            displayMilkCustomization();
+        }
+
+        function displayMilkCustomization() {
+            document.querySelector('.question-section').innerHTML = `
+                <h3>Step 3: Choose Your Milk Type</h3>
+                <button class="button" onclick="chooseCustomization(1, 'displaySweetenerCustomization')">Whole</button>
+                <button class="button" onclick="chooseCustomization(2, 'displaySweetenerCustomization')">Skim</button>
+                <button class="button" onclick="chooseCustomization(3, 'displaySweetenerCustomization')">Oat</button>
+                <button class="button" onclick="chooseCustomization(4, 'displaySweetenerCustomization')">Almond</button>
+                <button class="button" onclick="chooseCustomization(5, 'displaySweetenerCustomization')">Soy</button>
+                <button class="button" onclick="chooseCustomization(0, 'displaySweetenerCustomization')">No Milk</button>
+            `;
+        }
+
+        function displaySweetenerCustomization() {
+            document.querySelector('.question-section').innerHTML = `
+                <h3>Step 4: Choose Your Sweetener</h3>
+                <button class="button" onclick="chooseCustomization(1, 'displaySyrupCustomization')">Sugar</button>
+                <button class="button" onclick="chooseCustomization(2, 'displaySyrupCustomization')">Honey</button>
+                <button class="button" onclick="chooseCustomization(3, 'displaySyrupCustomization')">Stevia</button>
+                <button class="button" onclick="chooseCustomization(4, 'displaySyrupCustomization')">Simple Syrup</button>
+                <button class="button" onclick="chooseCustomization(0, 'displaySyrupCustomization')">I like it black</button>
+            `;
+        }
+
+        function displaySyrupCustomization() {
+            document.querySelector('.question-section').innerHTML = `
+                <h3>Step 5: Choose Your Syrup</h3>
+                <button class="button" onclick="chooseCustomization(1, 'displayExtrasCustomization')">Vanilla</button>
+                <button class="button" onclick="chooseCustomization(2, 'displayExtrasCustomization')">Caramel</button>
+                <button class="button" onclick="chooseCustomization(3, 'displayExtrasCustomization')">Hazelnut</button>
+                <button class="button" onclick="chooseCustomization(4, 'displayExtrasCustomization')">Mocha</button>
+                <button class="button" onclick="chooseCustomization(5, 'displayExtrasCustomization')">Pumpkin Spice (seasonal 🎃)</button>
+                <button class="button" onclick="chooseCustomization(0, 'displayExtrasCustomization')">No syrup for me</button>
+            `;
+        }
+
+        function displayExtrasCustomization() {
+            document.querySelector('.question-section').innerHTML = `
+                <h3>Step 6: Choose Your Extras</h3>
+                <button class="button" onclick="toggleExtra(this, 1)">Extra shots of espresso</button>
+                <button class="button" onclick="toggleExtra(this, 1)">Whipped cream</button>
+                <button class="button" onclick="toggleExtra(this, 1)">Foam: Regular</button>
+                <button class="button" onclick="toggleExtra(this, 1)">Foam: Extra</button>
+                <button class="button" onclick="displaySizeCustomization()">That's all!</button>
+            `;
+        }
+
+        function toggleExtra(button, value) {
+            if (button.classList.contains('selected')) {
+                button.classList.remove('selected');
+                score -= value;
+            } else {
+                button.classList.add('selected');
+                score += value;
+            }
+        }
+
+        function displaySizeCustomization() {
+            document.querySelector('.question-section').innerHTML = `
+                <h3>Step 7: Choose Your Size</h3>
+                <button class="button" onclick="chooseCustomization(1, 'displayResult')">Small</button>
+                <button class="button" onclick="chooseCustomization(2, 'displayResult')">Medium</button>
+                <button class="button" onclick="chooseCustomization(3, 'displayResult')">Large</button>
+            `;
+        }
+
+        function chooseCustomization(value, nextStep) {
+            score += value;
+            if (typeof window[nextStep] === 'function') {
+                window[nextStep]();
+            } else {
+                console.error(`Error: ${nextStep} is not a valid function.`);
+            }
+        }
+
+        function displayResult() {
+            // Calculate the nursing specialty based on the final score
+            const specialties = [
+                "Emergency Room Nurse (ER)", // 3 points
+                "Flight Nurse", // 4 points
+                "Trauma Nurse", // 5 points
+                "Critical Care Nurse (ICU/CCU)", // 6 points
+                "Neuroscience Nurse", // 7 points
+                "Forensic Nurse", // 8 points
+                "Operating Room Nurse", // 9 points
+                "Oncology Nurse", // 10 points
+                "Neonatal Intensive Care Unit Nurse (NICU)", // 11 points
+                "Cardiac Care Nurse", // 12 points
+                "Psychiatric Nurse", // 13 points
+                "Ortho Nurse", // 14 points
+                "Dialysis Nurse", // 15 points
+                "Pediatric Nurse", // 16 points
+                "Labor and Delivery Nurse (L&D)", // 17 points
+                "Telemetry Nurse", // 18 points
+                "Medical-Surgical Nurse (Med-Surg)", // 19 points
+                "Infectious Disease Nurse", // 20 points
+                "Hospice/Palliative Care Nurse", // 21 points
+                "Wound, Ostomy, and Continence Nurse (WOCN)", // 22 points
+                "Geriatric Nurse", // 23 points
+                "Transplant Nurse", // 24 points
+                "Radiology Nurse", // 25 points
+                "Hyperbaric Nurse", // 26 points
+                "Rehabilitation Nurse", // 27 points
+                "Middle Ground", // 28 points
+                "Nurse Midwife", // 29 points
+                "Infection Control Nurse", // 30 points
+                "Case Management Nurse", // 31 points
+                "Informatics Nurse", // 32 points
+                "Research Nurse", // 33 points
+                "Occupational Health Nurse", // 34 points
+                "Public Health Nurse", // 35 points
+                "Home Health Nurse", // 36 points
+                "Clinical Nurse Specialist (CNS)", // 37 points
+                "Legal Nurse Consultant", // 38 points
+                "Nurse Administrator", // 39 points
+                "IV Therapy Nurse", // 40 points
+                "Nurse Educator", // 41 points
+                "Dermatology Nurse", // 42 points
+                "Soft Nurse 💅", // 43 points
+                "School Nurse", // 44 points
+                "Aesthetics Nursing", // 45 points
+            ];
+
+            const specialty = specialties[Math.min(score, specialties.length - 1)];
+            document.querySelector('.question-section').innerHTML = `
+                <h3>Your nursing specialty is: ${specialty}</h3>
+            `;
+        }
+    </script>
+</body>
+</html>
